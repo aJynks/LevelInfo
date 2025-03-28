@@ -1,0 +1,3 @@
+gameinfo {
+    AddEventHandlers = "ajynks_C_levelInfo"
+}

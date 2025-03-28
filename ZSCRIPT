@@ -1,0 +1,64 @@
+version "4.11.3"
+
+#include "zscripts/textUtils.zs"
+#include "zscripts/toolPos.zs"
+
+class ajynks_C_levelInfo : EventHandler {
+    override void RenderOverlay(RenderEvent c) {
+        // Escape Draw incase of tilemap
+        if (gamestate == GS_TITLELEVEL){return;}
+
+        ajynks_levelInfoUtils timer;
+        ajynks_scaleTool toolPos;
+
+        statusbar.BeginHud();
+
+        String levelInfoReadOut;
+        if (ajynks_singleline) {
+            levelInfoReadOut = timer.setKills()..timer.setItems()..timer.setSecrets().."   "..timer.setTime();
+        } else {
+            levelInfoReadOut = timer.setTime().."\n"..timer.setKills()..timer.setItems()..timer.setSecrets();
+        }
+
+        //Console.Printf("Result: %d", ajynks_levelInfo_font);
+        //Console.Printf(Level.MapName.." : "..Level.Levelname);
+
+        Screen.DrawText(Font.GetFont(ajynks_levelInfo_font), Font.CR_UNTRANSLATED, 
+            toolPos.setPosX(ajynks_sliderValue_X), toolPos.setPosY(ajynks_sliderValue_Y), 
+            levelInfoReadOut,
+            DTA_ScaleX, ajynks_levelInfo_Scale,
+            DTA_ScaleY, ajynks_levelInfo_Scale//, 
+        );
+
+        if (ajynks_name != " " && ajynks_name != "nil" && ajynks_name != "empty") {
+            //string userName = ajynks_name;
+            //userName.ToUpper();
+            Screen.DrawText(Font.GetFont(ajynks_levelInfo_font), Font.CR_UNTRANSLATED, 
+                toolPos.setPosX(ajynks_name_sliderValue_X), toolPos.setPosY(ajynks_name_sliderValue_Y), 
+                ajynks_ColorUtil.GetColorCode(ajynks_name_Col, 9)..ajynks_name,
+                DTA_ScaleX, ajynks_name_Scale,
+                DTA_ScaleY, ajynks_name_Scale//, 
+            );
+        }
+
+        if (ajynks_levelInfo_map || ajynks_levelInfo_name) {
+            string levName = "";
+            if (ajynks_levelInfo_map && ajynks_levelInfo_name) {
+                levName = Level.MapName .. " : " .. Level.LevelName;
+            } 
+            else if (ajynks_levelInfo_map) {
+                levName = Level.MapName;
+            } 
+            else if (ajynks_levelInfo_name) {
+                levName = Level.LevelName;
+            }
+
+            Screen.DrawText(Font.GetFont(ajynks_levelInfo_font), Font.CR_UNTRANSLATED, 
+                toolPos.setPosX(ajynks_levelInfo_name_X), toolPos.setPosY(ajynks_levelInfo_name_Y), 
+                ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_name_col, 9)..levName,
+                DTA_ScaleX, ajynks_levelInfo_name_Scale,
+                DTA_ScaleY, ajynks_levelInfo_name_Scale//, 
+            );
+        }
+    }
+}

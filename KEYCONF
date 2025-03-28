@@ -1,0 +1,2 @@
+alias ajynks_LI_ShowToggle "show_messages false; toggle ajynks_levelInfo_show; show_messages true"
+//alias ajynks_runToggle "show_messages false; toggle cl_run; show_messages true"

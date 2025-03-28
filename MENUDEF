@@ -1,0 +1,61 @@
+AddOptionMenu "OptionsMenu"
+{
+	Submenu "MOD : aJynksed LevelInfo", "ajynks_LI_Options"
+}
+
+OptionMenu "ajynks_LI_Options"
+{
+	Title "The Jynksed LevelInfo Options"
+    StaticText ""
+    Option "Set Font : ", "ajynks_levelInfo_font", "ajynks_LIFontList"
+    Slider "Set Scale : ", "ajynks_levelInfo_Scale", 0.1, 15, 0.05, 3
+    Slider "Horizontal Position : ", "ajynks_sliderValue_X", 0, 100, 0.25, 2
+    Slider "Vertical Position : ", "ajynks_sliderValue_Y", 0, 100, 0.25, 2
+    Option "Display as a Single Line : ", "ajynks_singleline", "OnOff"
+    StaticText ""
+	Option "Show Level Name : ", "ajynks_levelInfo_name", "OnOff"
+    Option "Show Map Number : ", "ajynks_levelInfo_map", "OnOff"
+    Slider "Set Scale : ", "ajynks_levelInfo_name_Scale", 0.1, 15, 0.05, 3
+    Slider "Horizontal Position : ", "ajynks_levelInfo_name_X", 0, 100, 0.25, 2
+    Slider "Vertical Position : ", "ajynks_levelInfo_name_Y", 0, 100, 0.25, 2
+    
+    StaticText ""
+    StaticText "Colour Options"
+    StaticText ""
+    StaticText "Title"
+    Option "Level Name : " , ajynks_levelInfo_name_col, TextColors
+    Option "TIME : " , ajynks_levelInfo_sTime, TextColors
+    Option "K : "    , ajynks_levelInfo_sKills, TextColors
+    Option "I : "    , ajynks_levelInfo_sItems, TextColors
+    Option "S : "    , ajynks_levelInfo_sSecrets, TextColors
+
+    StaticText ""
+    StaticText "Output"
+    Option "Time : " , ajynks_levelInfo_time, TextColors
+    Option "Kills : ", ajynks_levelInfo_kills, TextColors
+    Option "Items : ", ajynks_levelInfo_items, TextColors
+    Option "Secrets : ", ajynks_levelInfo_secrets, TextColors
+
+    StaticText ""
+    Option "Show the Totals for the Level : ", "ajynks_levelInfo_show", "OnOff"
+	Control "Show / Hide Totals HotKey : ", "ajynks_LI_ShowToggle"
+    Option "100% Found : ", ajynks_levelInfo_100, TextColors
+
+    StaticText ""
+    TextField  "Set Player Name : ", "ajynks_name"
+    Slider "Set Scale : ", "ajynks_name_Scale", 0.1, 15, 0.05, 3
+    Option "Set Colour : " , ajynks_name_Col, TextColors
+    Slider "Horizontal Position : ", "ajynks_name_sliderValue_X", 0, 100, 0.25, 2
+    Slider "Vertical Position : ", "ajynks_name_sliderValue_Y", 0, 100, 0.25, 2
+	//StaticText ""
+	//Control "Toggle AutoRun + No Message : ", "ajynks_runToggle"
+}
+
+OptionString ajynks_LIFontList
+{
+  "aJynks_Default", "Default Font"
+  "NewSmallFont" , "New Small Font"
+  "SmallFont"    , "Small Font"
+  "ConsoleFont"  , "ConsoleFont"
+  "BigFont"      , "Big Font"
+}

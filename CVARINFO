@@ -1,0 +1,33 @@
+nosave float ajynks_levelInfo_Scale = 1;
+nosave float ajynks_sliderValue_X=0;
+nosave float ajynks_sliderValue_Y=0;
+nosave bool ajynks_singleline=false;
+
+nosave bool ajynks_levelInfo_name = false;
+nosave bool ajynks_levelInfo_map = false;
+nosave float ajynks_levelInfo_name_Scale=1;
+nosave float ajynks_levelInfo_name_X=0;
+nosave float ajynks_levelInfo_name_Y=0;
+nosave int ajynks_levelInfo_name_col=9;
+
+nosave int ajynks_levelInfo_sTime = 9; //white
+nosave int ajynks_levelInfo_sKills = 6; //red
+nosave int ajynks_levelInfo_sItems = 6; //red
+nosave int ajynks_levelInfo_sSecrets = 6; //red
+
+nosave int ajynks_levelInfo_time = 3; //green
+nosave int ajynks_levelInfo_kills = 21; //cyan
+nosave int ajynks_levelInfo_items = 10; //yellow
+nosave int ajynks_levelInfo_secrets = 18; //Dark Brown
+
+
+nosave bool ajynks_levelInfo_show = true;
+nosave int ajynks_levelInfo_100 = 8; //Dark Brown
+
+nosave string ajynks_levelInfo_font = "aJynks_Default"; // Default Font
+
+nosave string ajynks_name = "empty";
+nosave int ajynks_name_Col = 9; //white
+nosave float ajynks_name_Scale = 1;
+nosave float ajynks_name_sliderValue_X=0;
+nosave float ajynks_name_sliderValue_Y=0;
