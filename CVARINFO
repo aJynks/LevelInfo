@@ -2,7 +2,6 @@ nosave float ajynks_levelInfo_Scale = 1;
 nosave float ajynks_sliderValue_X=0;
 nosave float ajynks_sliderValue_Y=0;
 
-nosave bool ajynks_singleline=false;
 nosave string ajynks_levelInfo_layout = "layout_dsda"; // Default dsda-Default
 
 nosave bool ajynks_levelInfo_name = false;

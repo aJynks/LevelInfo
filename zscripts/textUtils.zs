@@ -78,6 +78,22 @@ class ajynks_Space
             return "";
         }
     }
+
+    static String item()
+    {
+        if (ajynks_levelInfo_font == "BigFont" || 
+            ajynks_levelInfo_font == "SmallFont" ||
+            ajynks_levelInfo_font == "aJynks_Default")
+        {
+            return " ";
+        }
+        else
+        {
+            return "";
+        }
+
+        //return ajynks_levelInfo_show ? "   " : "    "; // Default case
+    }
 }
 
 /*
@@ -210,14 +226,14 @@ class ajynks_levelInfoUtils
         if (ajynks_levelInfo_show) {
             //true == ON
             String items = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I"..space.item()..": "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_items, 10)..foundItems.."/"..totalItems
 			);
             return items;
             
         } else {
             String items = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I"..space.item()..": "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_items, 10)..foundItems
 			);
             //false

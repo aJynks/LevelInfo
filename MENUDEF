@@ -12,7 +12,6 @@ OptionMenu "ajynks_LI_Options"
     Slider "Horizontal Position : ", "ajynks_sliderValue_X", 0, 100, 0.25, 2
     Slider "Vertical Position : ", "ajynks_sliderValue_Y", 0, 100, 0.25, 2
     
-    Option "Display as a Single Line : ", "ajynks_singleline", "OnOff"
     Option "Choose Layout : ", "ajynks_levelInfo_layout", "ajynks_LILayOutList"
 
     StaticText ""
@@ -41,7 +40,7 @@ OptionMenu "ajynks_LI_Options"
 
     StaticText ""
     Option "Show the Totals for the Level : ", "ajynks_levelInfo_show", "OnOff"
-	Control "Show / Hide Totals HotKey : ", "ajynks_LI_ShowToggle"
+	  Control "Show / Hide Totals HotKey : ", "ajynks_LI_ShowToggle"
     Option "100% Found : ", ajynks_levelInfo_100, TextColors
 
     StaticText ""
