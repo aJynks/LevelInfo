@@ -81,28 +81,20 @@ class ajynks_Space
 
     static String item()
     {
-        if (ajynks_levelInfo_font == "BigFont" || 
-            ajynks_levelInfo_font == "SmallFont" ||
-            ajynks_levelInfo_font == "aJynks_Default")
+        if ("layout_vertical" == ajynks_levelInfo_layout) 
         {
-            return " ";
+            if (ajynks_levelInfo_font == "BigFont" || 
+                ajynks_levelInfo_font == "SmallFont" || 
+                ajynks_levelInfo_font == "aJynks_Default")
+            {
+                return " ";
+            }
+            return ""; // No need for else, just return directly
         }
-        else
-        {
-            return "";
-        }
-
-        //return ajynks_levelInfo_show ? "   " : "    "; // Default case
+    
+        return ""; // Fixed missing semicolon and ensures a return in all cases
     }
 }
-
-/*
-  "aJynks_Default", "Default Font"
-  "NewSmallFont" , "New Small Font"
-  "SmallFont"    , "Small Font"
-  "ConsoleFont"  , "ConsoleFont"
-  "BigFont"      , "Big Font"
-*/
 
 class ajynks_levelInfoUtils
 {
