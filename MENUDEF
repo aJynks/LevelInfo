@@ -11,9 +11,12 @@ OptionMenu "ajynks_LI_Options"
     Slider "Set Scale : ", "ajynks_levelInfo_Scale", 0.1, 15, 0.05, 3
     Slider "Horizontal Position : ", "ajynks_sliderValue_X", 0, 100, 0.25, 2
     Slider "Vertical Position : ", "ajynks_sliderValue_Y", 0, 100, 0.25, 2
+    
     Option "Display as a Single Line : ", "ajynks_singleline", "OnOff"
+    Option "Choose Layout : ", "ajynks_levelInfo_layout", "ajynks_LILayOutList"
+
     StaticText ""
-	Option "Show Level Name : ", "ajynks_levelInfo_name", "OnOff"
+	  Option "Show Level Name : ", "ajynks_levelInfo_name", "OnOff"
     Option "Show Map Number : ", "ajynks_levelInfo_map", "OnOff"
     Slider "Set Scale : ", "ajynks_levelInfo_name_Scale", 0.1, 15, 0.05, 3
     Slider "Horizontal Position : ", "ajynks_levelInfo_name_X", 0, 100, 0.25, 2
@@ -54,8 +57,15 @@ OptionMenu "ajynks_LI_Options"
 OptionString ajynks_LIFontList
 {
   "aJynks_Default", "Default Font"
-  "NewSmallFont" , "New Small Font"
-  "SmallFont"    , "Small Font"
-  "ConsoleFont"  , "ConsoleFont"
-  "BigFont"      , "Big Font"
+  "NewSmallFont"  , "New Small Font"
+  "SmallFont"     , "Small Font"
+  "ConsoleFont"   , "ConsoleFont"
+  "BigFont"       , "Big Font"
+}
+
+OptionString ajynks_LILayOutList
+{
+  "layout_dsda" , "dsda-Default"
+  "layout_line"    , "Single Line"
+  "layout_vertical", "Vertical"
 }

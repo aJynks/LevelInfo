@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run gzDOOM",
+            "type": "shell",
+            "command": "gzdoom_vscode.bat",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "dedicated"
+            },
+            "runOptions": {
+                "runOn": "folderOpen",
+                "saveAll": true
+            }
+        }
+    ]
+}

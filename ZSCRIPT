@@ -14,13 +14,18 @@ class ajynks_C_levelInfo : EventHandler {
         statusbar.BeginHud();
 
         String levelInfoReadOut;
-        if (ajynks_singleline) {
-            levelInfoReadOut = timer.setKills()..timer.setItems()..timer.setSecrets().."   "..timer.setTime();
-        } else {
+
+        if  ("layout_vertical" == ajynks_levelInfo_layout) {
+            levelInfoReadOut = timer.setTime(false).."\n"..timer.setKills().."\n"..timer.setItems(false).."\n"..timer.setSecrets(false);
+
+        } else if ("layout_line" == ajynks_levelInfo_layout) {
+            levelInfoReadOut = timer.setKills()..timer.setItems()..timer.setSecrets().."   "..timer.setTime(); //.."TIME : "
+
+        } else { //("layout_dsda" == ajynks_levelInfo_layout)
             levelInfoReadOut = timer.setTime().."\n"..timer.setKills()..timer.setItems()..timer.setSecrets();
         }
-
-        //Console.Printf("Result: %d", ajynks_levelInfo_font);
+        
+        //Console.Printf(ajynks_levelInfo_layout);
         //Console.Printf(Level.MapName.." : "..Level.Levelname);
 
         Screen.DrawText(Font.GetFont(ajynks_levelInfo_font), Font.CR_UNTRANSLATED, 

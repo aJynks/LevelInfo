@@ -37,38 +37,45 @@ class ajynks_ColorUtil
 
 class ajynks_Space
 {
-    static String set()
+    static String set(bool useSpace = true)
     {
-        if ("aJynks_Default" == ajynks_levelInfo_font) {
+        if (useSpace)
+        {
+            if ("aJynks_Default" == ajynks_levelInfo_font) {
 
-            if (ajynks_levelInfo_show) {
-                return "   ";
-            } else {return "    ";}
-
-        } else if ("NewSmallFont" == ajynks_levelInfo_font) {
-            if (ajynks_levelInfo_show) {
-                return " ";
-            } else {return " ";}
-
-        } else if ("SmallFont" == ajynks_levelInfo_font) {
-            if (ajynks_levelInfo_show) {
-                return "   ";
-            } else {return "   ";}
-
-        } else if ("ConsoleFont" == ajynks_levelInfo_font) {
-            if (ajynks_levelInfo_show) {
-                return " ";
-            } else {return " ";}
-
-        } else if ("BigFont" == ajynks_levelInfo_font) {
-            if (ajynks_levelInfo_show) {
-                return " ";
-            } else {return "  ";}
-
-        } else {
-            if (ajynks_levelInfo_show) {
-                return "   ";
-            } else {return "    ";}
+                if (ajynks_levelInfo_show) {
+                    return "   ";
+                } else {return "    ";}
+    
+            } else if ("NewSmallFont" == ajynks_levelInfo_font) {
+                if (ajynks_levelInfo_show) {
+                    return " ";
+                } else {return " ";}
+    
+            } else if ("SmallFont" == ajynks_levelInfo_font) {
+                if (ajynks_levelInfo_show) {
+                    return "   ";
+                } else {return "   ";}
+    
+            } else if ("ConsoleFont" == ajynks_levelInfo_font) {
+                if (ajynks_levelInfo_show) {
+                    return " ";
+                } else {return " ";}
+    
+            } else if ("BigFont" == ajynks_levelInfo_font) {
+                if (ajynks_levelInfo_show) {
+                    return " ";
+                } else {return "  ";}
+    
+            } else {
+                if (ajynks_levelInfo_show) {
+                    return "   ";
+                } else {return "    ";}
+            }
+        }
+        else
+        {
+            return "";
         }
     }
 }
@@ -84,7 +91,7 @@ class ajynks_Space
 class ajynks_levelInfoUtils
 {
     // Custom reload function
-    String setTime()
+    String setTime(bool timeLabel = true)
     {
         int tics_Second = 35;
         int seconds_Minute = 60;
@@ -130,13 +137,26 @@ class ajynks_levelInfoUtils
             hourString = hours.."";
         }
 
-        // Only print out Hour value, if time in level is over an hour.
-        if (hours > 0){
-            return ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sTime, 9).."TIME : "..ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_time, 3)..hourString..":"..minString..":"..secString..":"..ticString;
-        } 
-        else {
-            return ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sTime, 9).."TIME : "..ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_time, 3)..minString..":"..secString..":"..ticString;
-        }       
+        if (timeLabel)
+        {
+            // Only print out Hour value, if time in level is over an hour.
+            if (hours > 0){
+                return ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sTime, 9).."TIME : "..ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_time, 3)..hourString..":"..minString..":"..secString..":"..ticString;
+            } 
+            else {
+                return ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sTime, 9).."TIME : "..ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_time, 3)..minString..":"..secString..":"..ticString;
+            } 
+        }
+        else
+        {
+            // Only print out Hour value, if time in level is over an hour.
+            if (hours > 0){
+                return ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_time, 3)..hourString..":"..minString..":"..secString..":"..ticString;
+            } 
+            else {
+                return ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_time, 3)..minString..":"..secString..":"..ticString;
+            } 
+        }      
     }
 
     String setKills()
@@ -171,7 +191,7 @@ class ajynks_levelInfoUtils
         }
     }
 
-    String setItems()
+    String setItems(bool noSpace = true)
     {
         string foundItems     = String.Format("%d", level.Found_Items);
         string totalItems     = String.Format("%d", level.Total_Items);
@@ -180,7 +200,7 @@ class ajynks_levelInfoUtils
         // Check if all monsters are killed
         if (level.Found_Items == level.Total_Items) {
             String items = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set().."I: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I: "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_100, 8)..foundItems.."/"..totalItems
 			);
             return items;
@@ -190,14 +210,14 @@ class ajynks_levelInfoUtils
         if (ajynks_levelInfo_show) {
             //true == ON
             String items = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set().."I: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I: "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_items, 10)..foundItems.."/"..totalItems
 			);
             return items;
             
         } else {
             String items = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set().."I: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sItems, 6)..space.set(noSpace).."I: "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_items, 10)..foundItems
 			);
             //false
@@ -205,7 +225,7 @@ class ajynks_levelInfoUtils
         }
     }
 
-        String setSecrets()
+        String setSecrets(bool noSpace = true)
     {
         string foundSecrets   = String.Format("%d", level.Found_Secrets);
         string totalSecrets   = String.Format("%d", level.Total_Secrets);
@@ -214,7 +234,7 @@ class ajynks_levelInfoUtils
         // Check if all monsters are killed
         if (level.Found_Secrets == level.Total_Secrets) {
             String secrets = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sSecrets, 6)..space.set().."S: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sSecrets, 6)..space.set(noSpace).."S: "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_100, 8)..foundSecrets.."/"..totalSecrets
 			);
             return secrets;
@@ -223,14 +243,14 @@ class ajynks_levelInfoUtils
         if (ajynks_levelInfo_show) {
             //true == ON
             String secrets = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sSecrets, 6)..space.set().."S: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sSecrets, 6)..space.set(noSpace).."S: "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_secrets, 18)..foundSecrets.."/"..totalSecrets
 			);
             return secrets;
             
         } else {
             String secrets = String.Format(
-				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sSecrets, 6)..space.set().."S: "..
+				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_sSecrets, 6)..space.set(noSpace).."S: "..
 				ajynks_ColorUtil.GetColorCode(ajynks_levelInfo_secrets, 18)..foundSecrets
 			);
             //false
